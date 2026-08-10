@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/Core/utilis/styles.dart';
+import 'package:restaurant_app/features/splash/presentation/view/splash_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../data/model/on_boarding_model.dart';
 
@@ -71,7 +72,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (currentIndex == onboardingData.length - 1) {
-                          Navigator.pushReplacementNamed(context, '/home');
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SplashView()),
+                          );
                         } else {
                           _controller.nextPage(
                             duration: const Duration(milliseconds: 400),

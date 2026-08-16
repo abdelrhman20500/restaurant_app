@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:restaurant_app/features/home/presentation/view/cart_view.dart';
 import 'package:restaurant_app/features/layout/presentation/view/layout_view.dart';
 import 'Core/networking/supabase_service.dart';
 import 'Core/utilis/simple_bloc_observer.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Restaurant',
      debugShowCheckedModeBanner: false,
-      home: LayoutView(),
+      home: CartView(),
     );
   }
 }

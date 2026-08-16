@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_app/features/layout/presentation/view/layout_view.dart';
-import 'package:restaurant_app/features/onBoarding/presentation/view/on_boarding_view.dart';
+
 import 'Core/networking/supabase_service.dart';
+import 'Core/routing/app_router.dart';
 import 'Core/utilis/simple_bloc_observer.dart';
 
-void main()async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SupabaseService.init();
   Bloc.observer = SimpleBlocObserver();
@@ -17,12 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       title: 'Restaurant',
-     debugShowCheckedModeBanner: false,
-      home: LayoutView(),
+      debugShowCheckedModeBanner: false,
+      routerConfig: AppRouter.router,
     );
   }
 }
-
-

@@ -15,10 +15,14 @@ class BestSellerListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         children: const [
-          BestSellerCard(imagePath: 'assets/images/Rectangle 128.png', price: '\$103.0'),
-          BestSellerCard(imagePath: 'assets/images/Rectangle 128.png', price: '\$50.0'),
-          BestSellerCard(imagePath: 'assets/images/Rectangle 128.png', price: '\$12.99'),
-          BestSellerCard(imagePath: 'assets/images/Rectangle 128.png', price: '\$8.20'),
+          BestSellerCard(
+              imagePath: 'assets/images/Rectangle 128.png', price: '\$103.0'),
+          BestSellerCard(
+              imagePath: 'assets/images/Rectangle 128.png', price: '\$50.0'),
+          BestSellerCard(
+              imagePath: 'assets/images/Rectangle 128.png', price: '\$12.99'),
+          BestSellerCard(
+              imagePath: 'assets/images/Rectangle 128.png', price: '\$8.20'),
         ],
       ),
     );

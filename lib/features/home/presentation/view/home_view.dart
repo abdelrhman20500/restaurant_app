@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/features/home/presentation/view/widgets/best_seller_list_view.dart';
+import 'package:restaurant_app/features/home/presentation/view/widgets/best_seller_section_header.dart';
 import 'package:restaurant_app/features/home/presentation/view/widgets/home_banner_slider.dart';
 import 'package:restaurant_app/features/home/presentation/view/widgets/recommend_grid_view.dart';
 import '../../../../Core/utilis/styles.dart';
@@ -77,22 +78,7 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Best Seller Section Header
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Best Seller', style: Styles.style18.copyWith(color: Colors.black)),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Row(
-                            children: [
-                              Text('View All', style: Styles.style12),
-                              const Icon(Icons.arrow_forward_ios, size: 12, color: Color(0xFFE95425),),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                    const BestSellerSectionHeader(text1: "Best Seller",text2: "View All",),
                     const SizedBox(height: 12),
                     const BestSellerListView(),
                     const SizedBox(height: 20),
@@ -111,5 +97,6 @@ class HomeView extends StatelessWidget {
     );
   }
 }
+
 
 

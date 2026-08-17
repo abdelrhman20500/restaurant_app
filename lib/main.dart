@@ -7,8 +7,11 @@ import 'Core/utilis/simple_bloc_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await SupabaseService.init();
+
   Bloc.observer = SimpleBlocObserver();
+
   runApp(const MyApp());
 }
 

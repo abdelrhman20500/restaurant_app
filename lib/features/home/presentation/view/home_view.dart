@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../Core/utilis/styles.dart';
 import '../../widgets/best_seller_list_view.dart';
+import '../../widgets/best_seller_section_header.dart';
 import '../../widgets/categories_list.dart';
 import '../../widgets/home_banner_slider.dart';
 import '../../widgets/recommend_grid_view.dart';
@@ -17,6 +18,7 @@ class HomeView extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
+            // ================= HEADER =================
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
@@ -25,6 +27,7 @@ class HomeView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Search + Cart
                   Row(
                     children: [
                       Expanded(
@@ -66,12 +69,17 @@ class HomeView extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   const SizedBox(height: 16),
+
+                  // Greeting
                   Text(
                     'Good Morning',
                     style: Styles.style28,
                   ),
+
                   const SizedBox(height: 2),
+
                   Text(
                     'Rise And Shine! It\'s Breakfast Time',
                     style: Styles.style14.copyWith(
@@ -81,6 +89,8 @@ class HomeView extends StatelessWidget {
                 ],
               ),
             ),
+
+            // ================= CONTENT =================
             Container(
               width: double.infinity,
               decoration: const BoxDecoration(
@@ -97,33 +107,15 @@ class HomeView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // ================= CATEGORIES =================
                   const CategoriesList(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Best Seller',
-                        style: Styles.style18.copyWith(
-                          color: Colors.black,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Row(
-                          children: [
-                            Text(
-                              'View All',
-                              style: Styles.style12,
-                            ),
-                            const Icon(
-                              Icons.arrow_forward_ios,
-                              size: 12,
-                              color: Color(0xFFE95425),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+
+                  const SizedBox(height: 20),
+
+                  // ================= BEST SELLER =================
+                  const BestSellerSectionHeader(
+                    text1: 'Best Seller',
+                    text2: 'View All',
                   ),
 
                   const SizedBox(height: 12),
@@ -132,11 +124,12 @@ class HomeView extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
+                  // ================= BANNER =================
                   HomeBannerSlider(),
 
                   const SizedBox(height: 20),
 
-                  // Recommend
+                  // ================= RECOMMEND =================
                   Text(
                     'Recommend',
                     style: Styles.style18.copyWith(

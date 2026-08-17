@@ -4,7 +4,9 @@ import 'package:restaurant_app/features/menu/presentation/view/menu_view.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../home/data/repo/categories_repo.dart';
+import '../../../home/data/repo/home_repo.dart';
 import '../../../home/presentation/cubit/categories_cubit/categories_cubit.dart';
+import '../../../home/presentation/cubit/home_cubit/home_cubit.dart';
 import '../../../home/presentation/view/home_view.dart';
 import '../../../profile/presentation/view/profile_view.dart';
 import '../view_manager/nav_bar_cubit.dart';
@@ -40,6 +42,13 @@ class _LayoutViewState extends State<LayoutView> {
             ),
           )..getCategories(),
         ),
+        BlocProvider(
+          create: (_) => HomeCubit(
+            homeRepo: HomeRepo(
+              Supabase.instance.client,
+            ),
+          )..getBestSellers(),
+        ),
       ],
       child: BlocBuilder<NavBarCubit, NavBarState>(
         builder: (context, state) {
@@ -47,11 +56,9 @@ class _LayoutViewState extends State<LayoutView> {
 
           return Scaffold(
             backgroundColor: const Color(0xFFF7CA53),
-            body: SafeArea(
-              child: IndexedStack(
-                index: cubit.currentIndex,
-                children: tabs,
-              ),
+            body: IndexedStack(
+              index: cubit.currentIndex,
+              children: tabs,
             ),
             bottomNavigationBar: ClipRRect(
               borderRadius: const BorderRadius.only(

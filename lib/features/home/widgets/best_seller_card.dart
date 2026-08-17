@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class BestSellerCard extends StatelessWidget {
-  const BestSellerCard({super.key, required this.imagePath, required this.price,});
+  const BestSellerCard({
+    super.key,
+    required this.imagePath,
+    required this.price,
+  });
 
   final String imagePath;
   final String price;
@@ -14,7 +18,7 @@ class BestSellerCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
         image: DecorationImage(
-          image: AssetImage(imagePath),
+          image: NetworkImage(imagePath),
           fit: BoxFit.cover,
         ),
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_app/Core/utilis/styles.dart';
 import 'package:restaurant_app/features/splash/presentation/view/splash_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 import '../../data/model/on_boarding_model.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -46,13 +47,17 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset(onboardingData[currentIndex].icon,
-                    height: 40, color: const Color(0xFFFF6B00),),
+                  Image.asset(
+                    onboardingData[currentIndex].icon,
+                    height: 40,
+                    color: const Color(0xFFFF6B00),
+                  ),
                   const SizedBox(height: 16),
-                  Text(onboardingData[currentIndex].title, style: Styles.style24),
+                  Text(onboardingData[currentIndex].title,
+                      style: Styles.style24),
                   const SizedBox(height: 12),
                   Text(onboardingData[currentIndex].description,
-                    textAlign: TextAlign.center,style: Styles.style14),
+                      textAlign: TextAlign.center, style: Styles.style14),
                   const SizedBox(height: 24),
                   SmoothPageIndicator(
                     controller: _controller,
@@ -74,7 +79,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                         if (currentIndex == onboardingData.length - 1) {
                           Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(builder: (context) => const SplashView()),
+                            MaterialPageRoute(
+                                builder: (context) => const SplashView()),
                           );
                         } else {
                           _controller.nextPage(
@@ -91,10 +97,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                         elevation: 0,
                       ),
                       child: Text(
-                        currentIndex == onboardingData.length - 1
-                            ? "Get Started" : "Next",
-                        style: Styles.style16
-                      ),
+                          currentIndex == onboardingData.length - 1
+                              ? "Get Started"
+                              : "Next",
+                          style: Styles.style16),
                     ),
                   ),
                 ],

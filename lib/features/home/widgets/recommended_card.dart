@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../product_details_view.dart';
+import '../presentation/view/product_details_view.dart';
 
 class RecommendCard extends StatelessWidget {
-  const RecommendCard({super.key, required this.imagePath, required this.rating, required this.price,});
+  const RecommendCard({
+    super.key,
+    required this.imagePath,
+    required this.rating,
+    required this.price,
+  });
 
   final String imagePath;
   final String rating;
@@ -12,9 +17,11 @@ class RecommendCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>
-            const ProductDetailsView()));
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const ProductDetailsView()));
       },
       child: Container(
         decoration: BoxDecoration(
@@ -49,7 +56,8 @@ class RecommendCard extends StatelessWidget {
                     const SizedBox(width: 2),
                     const Icon(Icons.star, color: Colors.amber, size: 12),
                     const SizedBox(width: 4),
-                    const Icon(Icons.favorite, color: Color(0xFFE95425), size: 12),
+                    const Icon(Icons.favorite,
+                        color: Color(0xFFE95425), size: 12),
                   ],
                 ),
               ),

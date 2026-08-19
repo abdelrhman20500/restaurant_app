@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:restaurant_app/Core/utilis/styles.dart';
 import 'package:restaurant_app/features/auth/data/repo/auth_repo.dart';
 import 'package:restaurant_app/features/auth/presentation/view_manager/auth_cubit.dart';
 import 'package:restaurant_app/features/auth/presentation/view_manager/auth_states.dart';
+
 import '../../../../Core/function/snack_bar_message.dart';
+import '../../../../Core/routing/app_router.dart';
 import '../../../../Core/widget/custom_button.dart';
 import '../../../../Core/widget/custom_text_field.dart';
 import 'login_view.dart';
 
 class SignUpView extends StatefulWidget {
-   const SignUpView({super.key});
+  const SignUpView({super.key});
 
   @override
   State<SignUpView> createState() => _SignUpViewState();
@@ -30,10 +33,17 @@ class _SignUpViewState extends State<SignUpView> {
       create: (context) => AuthCubit(AuthRepo()),
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
-          if(state is SignUpFailure){
-            snackBarMessage(context: context, text: state.error,backgroundColor: Colors.red);
-          }else if(state is SignUpSuccess){
-            snackBarMessage(context: context, text: "SignUp Success", backgroundColor: Colors.green);
+          if (state is SignUpFailure) {
+            snackBarMessage(
+                context: context,
+                text: state.error,
+                backgroundColor: Colors.red);
+          } else if (state is SignUpSuccess) {
+            snackBarMessage(
+                context: context,
+                text: "SignUp Success",
+                backgroundColor: Colors.green);
+            context.go(AppRouter.login);
           }
         },
         builder: (context, state) {
@@ -46,14 +56,22 @@ class _SignUpViewState extends State<SignUpView> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
                       child: Row(
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.arrow_back_ios, color: Color(0xFFE95425)),
-                            onPressed: () => Navigator.pop,),
+                            icon: const Icon(Icons.arrow_back_ios,
+                                color: Color(0xFFE95425)),
+                            onPressed: () {
+                              context.go(AppRouter.splash);
+                            },
+                          ),
                           Expanded(
-                            child: Text('New Account', textAlign: TextAlign.center, style:Styles.style24),),
+                            child: Text('New Account',
+                                textAlign: TextAlign.center,
+                                style: Styles.style24),
+                          ),
                           const SizedBox(width: 48),
                         ],
                       ),
@@ -62,7 +80,8 @@ class _SignUpViewState extends State<SignUpView> {
                     Expanded(
                       child: Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 24, vertical: 28),
                         decoration: const BoxDecoration(
                           color: Color(0xFFF8F8F8),
                           borderRadius: BorderRadius.only(
@@ -74,7 +93,9 @@ class _SignUpViewState extends State<SignUpView> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const SizedBox(height: 50,),
+                              const SizedBox(
+                                height: 50,
+                              ),
                               CustomTextField(
                                 label: 'Full name',
                                 hintText: 'enter full name here',
@@ -101,29 +122,47 @@ class _SignUpViewState extends State<SignUpView> {
                                 },
                               ),
                               const SizedBox(height: 28),
-                             state is SignUpLoading ?const Center(child: CircularProgressIndicator(color: Color(0xFFE95425),),):
-                             CustomButton( text: "Sign Up",onPressed: ()
-                               {
-                                 if(formKey.currentState!.validate()){
-                                   BlocProvider.of<AuthCubit>(context).signUp(
-                                       name: nameController.text.trim(),
-                                       email: emailController.text.trim(),
-                                       password: passwordController.text.trim()
-                                   );
-                                 }
-                               },),
+                              state is SignUpLoading
+                                  ? const Center(
+                                      child: CircularProgressIndicator(
+                                        color: Color(0xFFE95425),
+                                      ),
+                                    )
+                                  : CustomButton(
+                                      text: "Sign Up",
+                                      onPressed: () {
+                                        if (formKey.currentState!.validate()) {
+                                          BlocProvider.of<AuthCubit>(context)
+                                              .signUp(
+                                                  name: nameController.text
+                                                      .trim(),
+                                                  email: emailController.text
+                                                      .trim(),
+                                                  password: passwordController
+                                                      .text
+                                                      .trim());
+                                        }
+                                      },
+                                    ),
                               const SizedBox(height: 26),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("Already have an account ?",style: Styles.style18W500.copyWith(color: Colors.black)),
+                                  Text("Already have an account ?",
+                                      style: Styles.style18W500
+                                          .copyWith(color: Colors.black)),
                                   const SizedBox(width: 6),
                                   InkWell(
-                                      onTap: (){
-                                        Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                                            const LoginView()));
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const LoginView()));
                                       },
-                                      child: Text("Login", style:Styles.style22.copyWith(color: const Color(0xFFFF6B00)))),
+                                      child: Text("Login",
+                                          style: Styles.style22.copyWith(
+                                              color: const Color(0xFFFF6B00)))),
                                 ],
                               )
                             ],
@@ -141,4 +180,3 @@ class _SignUpViewState extends State<SignUpView> {
     );
   }
 }
-

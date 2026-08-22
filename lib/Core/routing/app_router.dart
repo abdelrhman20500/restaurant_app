@@ -47,27 +47,27 @@ class AppRouter {
       GoRoute(
         path: onboarding,
         // name: 'onboarding',
-        builder: (context, state) => OnBoardingView(),
+        builder: (context, state) => const OnBoardingView(),
       ),
 
       // Login
       GoRoute(
         path: login,
         // name: 'login',
-        builder: (context, state) => LoginView(),
+        builder: (context, state) => const LoginView(),
       ),
       // layout
       GoRoute(
         path: layout,
         // name: 'login',
-        builder: (context, state) => LayoutView(),
+        builder: (context, state) => const LayoutView(),
       ),
 
       // Register
       GoRoute(
         path: signUp,
         // name: 'register',
-        builder: (context, state) => SignUpView(),
+        builder: (context, state) => const SignUpView(),
       ),
 
       // /// Home
@@ -80,7 +80,7 @@ class AppRouter {
       GoRoute(
         path: profile,
         // name: 'home',
-        builder: (context, state) => ProfileView(),
+        builder: (context, state) => const ProfileView(),
       ),
 
       // GoRoute(

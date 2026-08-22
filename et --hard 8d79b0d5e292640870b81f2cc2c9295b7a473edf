@@ -1,0 +1,59 @@
+[33mcommit e413c05f27dd3ca0d479f4cc1f8901307192b5f7[m[33m ([m[1;36mHEAD -> [m[1;32mcart[m[33m, [m[1;31morigin/cart[m[33m)[m
+Author: AbdElrhman AbdElfattah <abdelrhmanabdelfattah9866@gmail.com>
+Date:   Wed Aug 19 17:33:15 2026 +0200
+
+    Refactor Code
+
+[33mcommit 8d79b0d5e292640870b81f2cc2c9295b7a473edf[m
+Author: AbdElrhman AbdElfattah <abdelrhmanabdelfattah9866@gmail.com>
+Date:   Sun Aug 16 12:10:14 2026 +0200
+
+    Create Cart
+
+[33mcommit 0db9c38296d412779b8232e467a930f82f64aecc[m[33m ([m[1;31morigin/product_details[m[33m, [m[1;32mproduct_details[m[33m)[m
+Author: AbdElrhman AbdElfattah <abdelrhmanabdelfattah9866@gmail.com>
+Date:   Sun Aug 16 11:59:21 2026 +0200
+
+    Create Product Details View
+
+[33mcommit 8cf9cf488751ff08b01cdcb2287de4052040766b[m[33m ([m[1;31morigin/home[m[33m, [m[1;32mhome[m[33m)[m
+Author: AbdElrhman AbdElfattah <abdelrhmanabdelfattah9866@gmail.com>
+Date:   Sun Aug 16 11:39:11 2026 +0200
+
+    Refactor Code
+
+[33mcommit 9660542938a3fd09e383cf4a8283e4effe41ec51[m
+Author: AbdElrhman AbdElfattah <abdelrhmanabdelfattah9866@gmail.com>
+Date:   Sun Aug 16 01:18:40 2026 +0200
+
+    Create Home View
+
+[33mcommit a76fbe06aeeb2c917b0b51f9e73e391e4d2565ac[m[33m ([m[1;31morigin/profile[m[33m, [m[1;32mprofile[m[33m)[m
+Author: AbdElrhman AbdElfattah <abdelrhmanabdelfattah9866@gmail.com>
+Date:   Tue Aug 11 10:06:19 2026 +0200
+
+    Create Profile View
+
+[33mcommit cb4791b4b5e330fbbb78f9fa2f67cc8b9f2cbe8f[m[33m ([m[1;31morigin/layout[m[33m, [m[1;32mlayout[m[33m)[m
+Author: AbdElrhman AbdElfattah <abdelrhmanabdelfattah9866@gmail.com>
+Date:   Tue Aug 11 09:38:49 2026 +0200
+
+    Finished Layout
+
+[33mcommit 4b54eb733d5ef58263f7dbc6f4ae14df6687a540[m[33m ([m[1;31morigin/auth[m[33m, [m[1;32mauth[m[33m)[m
+Author: AbdElrhman AbdElfattah <abdelrhmanabdelfattah9866@gmail.com>
+Date:   Mon Aug 10 12:19:55 2026 +0200
+
+    Create Auth And Splash View
+
+[33mcommit ca1e7bc0194966d1800ec98b7aea508304f0663c[m[33m ([m[1;32mmain[m[33m)[m
+Author: AbdElrhman AbdElfattah <abdelrhmanabdelfattah9866@gmail.com>
+Date:   Sun Aug 9 18:21:48 2026 +0200
+
+    Create OnBoarding
+
+[33mcommit 68708c2fb952365190da057b7ab0261c3fd39647[m
+Author: AbdElrhman AbdElfattah <abdelrhmanabdelfattah9866@gmail.com>
+Date:   Sun Aug 9 17:00:32 2026 +0200
+
+    first commit

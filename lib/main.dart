@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'Core/networking/supabase_service.dart';
 import 'Core/routing/app_router.dart';
 import 'Core/utilis/simple_bloc_observer.dart';
@@ -11,7 +10,6 @@ void main() async {
   await SupabaseService.init();
 
   Bloc.observer = SimpleBlocObserver();
-
   runApp(const MyApp());
 }
 

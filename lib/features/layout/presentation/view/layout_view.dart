@@ -7,6 +7,7 @@ import '../../../home/data/repo/categories_repo.dart';
 import '../../../home/data/repo/home_repo.dart';
 import '../../../home/presentation/cubit/categories_cubit/categories_cubit.dart';
 import '../../../home/presentation/cubit/home_cubit/home_cubit.dart';
+import '../../../home/presentation/cubit/recommend_cubit/recommend_cubit.dart';
 import '../../../home/presentation/view/home_view.dart';
 import '../../../profile/presentation/view/profile_view.dart';
 import '../view_manager/nav_bar_cubit.dart';
@@ -49,6 +50,13 @@ class _LayoutViewState extends State<LayoutView> {
             ),
           )..getBestSellers(),
         ),
+        BlocProvider(
+          create: (_) => RecommendCubit(
+            homeRepo: HomeRepo(
+              Supabase.instance.client,
+            ),
+          )..getRecommended(),
+        ),
       ],
       child: BlocBuilder<NavBarCubit, NavBarState>(
         builder: (context, state) {
@@ -60,52 +68,46 @@ class _LayoutViewState extends State<LayoutView> {
               index: cubit.currentIndex,
               children: tabs,
             ),
-            bottomNavigationBar: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(22),
-                topRight: Radius.circular(22),
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: cubit.currentIndex,
+              backgroundColor: const Color(0xffE95322),
+              type: BottomNavigationBarType.fixed,
+              selectedItemColor: Colors.white,
+              unselectedItemColor: const Color.fromARGB(255, 202, 199, 199),
+              selectedIconTheme: const IconThemeData(
+                size: 28,
               ),
-              child: BottomNavigationBar(
-                currentIndex: cubit.currentIndex,
-                backgroundColor: const Color(0xffE95322),
-                type: BottomNavigationBarType.fixed,
-                selectedItemColor: Colors.white,
-                unselectedItemColor: const Color.fromARGB(255, 202, 199, 199),
-                selectedIconTheme: const IconThemeData(
-                  size: 28,
-                ),
-                unselectedIconTheme: const IconThemeData(
-                  size: 24,
-                ),
-                selectedLabelStyle: const TextStyle(
-                  fontSize: 8,
-                  fontWeight: FontWeight.w600,
-                ),
-                unselectedLabelStyle: const TextStyle(
-                  fontSize: 6,
-                  fontWeight: FontWeight.w500,
-                ),
-                onTap: (index) {
-                  cubit.changeIndex(index);
-                },
-                items: const [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home_outlined),
-                    activeIcon: Icon(Icons.home),
-                    label: "Home",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.restaurant_menu_outlined),
-                    activeIcon: Icon(Icons.restaurant_menu),
-                    label: "Menu",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person_outline),
-                    activeIcon: Icon(Icons.person),
-                    label: "Profile",
-                  ),
-                ],
+              unselectedIconTheme: const IconThemeData(
+                size: 24,
               ),
+              selectedLabelStyle: const TextStyle(
+                fontSize: 8,
+                fontWeight: FontWeight.w600,
+              ),
+              unselectedLabelStyle: const TextStyle(
+                fontSize: 6,
+                fontWeight: FontWeight.w500,
+              ),
+              onTap: (index) {
+                cubit.changeIndex(index);
+              },
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home_outlined),
+                  activeIcon: Icon(Icons.home),
+                  label: "Home",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.restaurant_menu_outlined),
+                  activeIcon: Icon(Icons.restaurant_menu),
+                  label: "Menu",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person_outline),
+                  activeIcon: Icon(Icons.person),
+                  label: "Profile",
+                ),
+              ],
             ),
           );
         },

@@ -13,7 +13,6 @@ class CategoriesList extends StatelessWidget {
     return BlocBuilder<CategoriesCubit, CategoriesState>(
       builder: (context, state) {
         final cubit = context.read<CategoriesCubit>();
-
         if (state is CategoriesLoading) {
           return const SizedBox(
             height: 105,

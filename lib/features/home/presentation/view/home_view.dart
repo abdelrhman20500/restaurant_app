@@ -11,144 +11,113 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 36.0),
-      child: Container(
-        color: const Color(0xFFF7CA53),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              // ================= HEADER =================
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 12,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Search + Cart
-                    Row(
+    return Scaffold(
+      backgroundColor: const Color(0xFFF8F8F8),
+      body: Stack(
+        children: [
+          Container(
+            height: 220,
+            color: const Color(0xFFF7CA53),
+          ),
+          SafeArea(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: [
+                  // ================= HEADER =================
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Container(
-                            height: 42,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                hintText: 'Search',
-                                hintStyle: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 42,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(25),
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 10,
+                                child: const TextField(
+                                  decoration: InputDecoration(
+                                    hintText: 'Search',
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                    ),
+                                    contentPadding: EdgeInsets.symmetric(
+                                      horizontal: 20,
+                                      vertical: 10,
+                                    ),
+                                    border: InputBorder.none,
+                                  ),
                                 ),
-                                border: InputBorder.none,
                               ),
                             ),
-                          ),
+                            const SizedBox(width: 12),
+                            Container(
+                              height: 42,
+                              width: 42,
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Icon(
+                                Icons.shopping_cart_outlined,
+                                color: Color(0xFFE95425),
+                                size: 22,
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 12),
-                        Container(
-                          height: 42,
-                          width: 42,
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.shopping_cart_outlined,
-                            color: Color(0xFFE95425),
-                            size: 22,
-                          ),
+                        const SizedBox(height: 16),
+                        Text('Good Morning', style: Styles.style28,),
+                        const SizedBox(height: 2),
+                        Text('Rise And Shine! It\'s Breakfast Time',
+                          style: Styles.style14.copyWith(color: const Color(0xFFE95425),),
                         ),
                       ],
                     ),
-
-                    const SizedBox(height: 16),
-
-                    // Greeting
-                    Text(
-                      'Good Morning',
-                      style: Styles.style28,
-                    ),
-
-                    const SizedBox(height: 2),
-
-                    Text(
-                      'Rise And Shine! It\'s Breakfast Time',
-                      style: Styles.style14.copyWith(
-                        color: const Color(0xFFE95425),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              // ================= CONTENT =================
-              Container(
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Color(0xFFF8F8F8),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
                   ),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 20,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // ================= CATEGORIES =================
-                    // const CategoriesList(),
-
-                    const SizedBox(height: 20),
-
-                    // ================= BEST SELLER =================
-                    const BestSellerSectionHeader(
-                      text1: 'Best Seller',
-                      text2: 'View All',
-                    ),
-
-                    const SizedBox(height: 12),
-
-                    const BestSellerListView(),
-
-                    const SizedBox(height: 20),
-
-                    // ================= BANNER =================
-                    HomeBannerSlider(),
-
-                    const SizedBox(height: 20),
-
-                    // ================= RECOMMEND =================
-                    Text(
-                      'Recommend',
-                      style: Styles.style18.copyWith(
-                        color: Colors.black,
+                  const SizedBox(height: 10),
+                  Container(
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFF8F8F8),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
                       ),
                     ),
-
-                    const SizedBox(height: 12),
-
-                    const RecommendGridView(),
-
-                    const SizedBox(height: 30),
-                  ],
-                ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 20,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const BestSellerSectionHeader(text1: 'Best Seller', text2: 'View All',),
+                        const SizedBox(height: 12),
+                        const BestSellerListView(),
+                        const SizedBox(height: 20),
+                        HomeBannerSlider(),
+                        const SizedBox(height: 20),
+                        Text('Recommend', style: Styles.style18.copyWith(color: Colors.black,),),
+                        const SizedBox(height: 12),
+                        const RecommendGridView(),
+                        const SizedBox(height: 30),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
